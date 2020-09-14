@@ -192,7 +192,7 @@ var BLACK_STYLE=
 
 var STYLE_TYPE_ID=
 {
-    BLACK_ID:1, //黑色风格
+    BLACK_ID:0, //黑色风格
 }
 
 function HQChartStyle()

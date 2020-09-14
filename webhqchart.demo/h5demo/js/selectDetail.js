@@ -1,6 +1,6 @@
 //全局的环境变量
 var JSEnvironment = {
-    Symbol: '600000.sh', //股票代码
+    Symbol: '000001.sz', //股票代码
     //Symbol:'000001.sz',     //股票代码
     KLineIndex: [   //K线指标
         { Name: 'KDJ', Index: 'KDJ' },
