@@ -30,50 +30,43 @@
             //K线配置信息
             this.Option = 
             {
-                Type:'分钟走势图',   //创建图形类型
-                
-                Windows: //窗口指标
-                [
-                    {
-                        Index:"自定义指标", 
-                        API: {Name:'自定义指标',Script:null, Args:null, Url:'http://127.0.0.1:18080/api/jsindex' }
-                    }    //窗口指标
-                ], 
-                
+                Type:'分钟走势图',   //创建图形类型                        
                 Symbol:'000001.sz',
                 IsAutoUpdate:true,              //是自动更新数据
                 DayCount:1,                     //1 最新交易日数据 >1 多日走势图
-                IsShowRightMenu:true,           //是否显示右键菜单
-    
+                IsShowRightMenu:false,           //是否显示右键菜单
+                IsCorssOnlyDrawKLine: false,
+                CorssCursorTouchEnd: false,
                 MinuteLine:
                 {
                     //IsDrawAreaPrice:false,      //是否画价格面积图
                     //SplitType:1,                //0=默认值最大最小值 1=涨跌停作为最大最小值
                 },
-
                 Border: //边框
                 {
-                    Left:50,    //左边间距
-                    Right:50,     //右边间距
+                    Left:0,    //左边间距
+                    Right:0,     //右边间距
                     Top:25,
                     Bottom:50
                 },
-                
                 Frame:  //子框架设置
                 [
                     {SplitCount:5},
                     {SplitCount:3},
                     {SplitCount:3},
                 ],
-
                 Overlay: //叠加股票 目前只支持1只股票
                 [
                     //{Symbol:'000001.sh'}
                 ],
-
                 NetworkFilter:function(data, callback) { self.NetworkFilter(data, callback); } ,   //绑定网络协议回调
             };
-                 
+
+            for (var i in this.Option.Windows) {
+                this.Option.Windows[i].Modify = false;
+                this.Option.Windows[i].Change = false;
+            }
+
             this.Create=function()  //创建图形
             {
                 var self=this;
